@@ -1,0 +1,19 @@
+{
+    "images": ["../assets/player.png"],
+    "frames": {
+      "width": 20,
+      "height": 20,
+      "count": 5,
+      "regX": 0,
+      "regY": 0,
+      "spacing": 0,
+      "margin": 0
+    },
+    "animations": {
+            "right":[0],
+            "down":[1],
+            "up":[2],
+            "left":[3],
+            "hurt":[4]
+    }
+}
