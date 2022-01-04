@@ -42,18 +42,18 @@ const INPUT_LOCK_DURATION = 1500
 const DISTRACTORS_COUNT = 4
 
 const ASSET_MANIFEST = [
-  { src:"button_easy.png", id:"playButtonEasy"},
-  { src:"button_medium.png", id:"playButtonMedium"},
-  { src:"button_hard.png", id:"playButtonHard"},
-  { src:"Background_SM.png", id:"background"},
-  { src:"Background_SM2.png", id:"backgroundDimmed"},
-  { src:"Title_SM.png", id:"title"},
-  { src:"collect.wav", id:"collect"},
-  { src:"lose.wav", id:"lose"},
-  { src:"spawn.wav", id:"spawn"},
-  { src:"press.wav", id:"press"},
-  { src:"playerSpritesheet.json", id:"playerSpritesheet", type:"spritesheet"},
-  { src:"ghostSpritesheet.json", id:"ghostSpritesheet", type:"spritesheet"}
+  { src:"assets/button_easy.png", id:"playButtonEasy"},
+  { src:"assets/button_medium.png", id:"playButtonMedium"},
+  { src:"assets/button_hard.png", id:"playButtonHard"},
+  { src:"assets/Background_SM.png", id:"background"},
+  { src:"assets/Background_SM2.png", id:"backgroundDimmed"},
+  { src:"assets/Title_SM.png", id:"title"},
+  { src:"assets/collect.wav", id:"collect"},
+  { src:"assets/lose.wav", id:"lose"},
+  { src:"assets/spawn.wav", id:"spawn"},
+  { src:"assets/press.wav", id:"press"},
+  { src:"assets/playerSpritesheet.json", id:"playerSpritesheet", type:"spritesheet"},
+  { src:"assets/ghostSpritesheet.json", id:"ghostSpritesheet", type:"spritesheet"}
 ]
 
 const PLAY_BUTTON_DESCRIPTORS = [
@@ -94,7 +94,7 @@ class PhantomPower {
   }
 
   init() {
-    this.loader = new createjs.LoadQueue(true);
+    this.loader = new createjs.LoadQueue(true);//, "./assets/");
     this.loader.installPlugin(createjs.Sound);
     var loader = this.loader
 
@@ -125,7 +125,7 @@ class PhantomPower {
       dispatchEvent(event);
     }.bind(this));
 
-    loader.loadManifest(ASSET_MANIFEST, true, "./assets/");
+    loader.loadManifest(ASSET_MANIFEST, true);
   }
 
   showTitle() {
