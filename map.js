@@ -34,7 +34,7 @@ class Map extends createjs.Container {
     for (let row = 0; row < this.rows; ++row) {
       for (let column = 0; column < this.columns; ++column) {
 
-        this.shape.graphics.setStrokeStyle(WALL_THICKNESS,"round").beginStroke("#2121de");
+        this.shape.graphics.setStrokeStyle(WALL_THICKNESS,"round").beginStroke("#121266");
 
         switch (MAP_DATA[row][column]) {
           case 1:

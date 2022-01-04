@@ -122,7 +122,6 @@ class Player extends Entity {
     super(width, x, y, map)
 
     this.isAlive = true
-    this.shape = new createjs.Shape()
     this.addChild(this.shape)
 
     var sprite = new createjs.Sprite(spritesheet)
@@ -132,8 +131,6 @@ class Player extends Entity {
     sprite.y = width * .5
     this.addChild(sprite)
     this.sprite = sprite
-
-    this.shape.graphics.beginFill("#ffff00").drawCircle(width/2, width/2, width/2);
   }
 
   playHurtAnimation() {
@@ -151,7 +148,7 @@ class Player extends Entity {
 
 class Answer extends Entity {
   constructor(x, y, map, valueString) {
-    var label = new createjs.Text(valueString, "20px Courier", "#dea185");
+    var label = new createjs.Text(valueString, "20px Courier", "#a9ebf9");
 
     var width = label.getMeasuredWidth()
 

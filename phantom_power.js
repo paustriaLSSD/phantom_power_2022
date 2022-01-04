@@ -45,7 +45,7 @@ const ASSET_MANIFEST = [
   { src:"button_easy.png", id:"playButtonEasy"},
   { src:"button_medium.png", id:"playButtonMedium"},
   { src:"button_hard.png", id:"playButtonHard"},
-  { src:"Background_SM.jpg", id:"background"},
+  { src:"Background_SM.png", id:"background"},
   { src:"Background_SM2.png", id:"backgroundDimmed"},
   { src:"Title_SM.png", id:"title"},
   { src:"collect.wav", id:"collect"},
@@ -146,7 +146,7 @@ class PhantomPower {
       }.bind(this));
     })
 
-    var text = new createjs.Text("Made for Cavelero Mid High School by Mr. Austria", "12px Courier New", "#00ff00")
+    var text = new createjs.Text("Made for Cavelero Mid High School by Mr. Austria", "12px Courier New", "#a9ebf9")
     text.x = 65
     text.y = 542
     stage.addChild(text)
@@ -229,9 +229,9 @@ class PhantomPower {
     var background = this.backgroundDimmed
     stage.addChild(background);
 
-    this.scoreLabel = createLabel(stage, "Score:", 18, "#ffffff", 20, UI_Y, "left");
-    this.scoreCounter = createLabel(stage, "0", 18, "#ffffff", 90, UI_Y, "left")
-    this.instructionLabel = createLabel(stage, "Simplify:", 20, "#ffffff", this.width / 2, UI_Y, "center")
+    this.scoreLabel = createLabel(stage, "Score:", 18, "#a9ebf9", 20, UI_Y, "left");
+    this.scoreCounter = createLabel(stage, "0", 18, "#a9ebf9", 90, UI_Y, "left")
+    this.instructionLabel = createLabel(stage, "Simplify:", 20, "#a9ebf9", this.width / 2, UI_Y, "center")
 
     var map = new Map(COLUMNS, ROWS, 430, 430)
     setAnchorPointCenter(map);
@@ -377,13 +377,13 @@ class PhantomPower {
   increaseScore(delta) {
     this.score += delta
     this.scoreCounter.text = this.score
-    this.scoreCounter.color = "#ffffff"
+    this.scoreCounter.color = "#a9ebf9"
     createjs.Tween.get(this.scoreCounter).to({color:"#00ff00"}, 50, null)
                                          .to({color:"#ff0000"}, 50, null)
-                                         .to({color:"#ffffff"}, 50, null)
+                                         .to({color:"#a9ebf9"}, 50, null)
                                          .to({color:"#00ffff"}, 50, null)
                                          .to({color:"#00ff00"}, 50, null)
-                                         .to({color:"#ffffff"}, 50, null)
+                                         .to({color:"#a9ebf9"}, 50, null)
   }
 
   addFlyaway(x, y, message, color, onComplete=null) {
@@ -393,7 +393,7 @@ class PhantomPower {
     flyaway.y = y
 
     var originalColor = color
-    var flashColor = "#ffffff"
+    var flashColor = "#a9ebf9"
 
     this.map.addChild(flyaway);
     createjs.Tween.get(flyaway).to({color:flashColor}, 50, null)
@@ -517,7 +517,7 @@ class PhantomPower {
       this.currentStreak += 1
 
       if (this.currentStreak >= 3) {
-        this.addFlyaway(answer.x, answer.y - 15, "COMBO x" + this.currentStreak, "#ffffff")
+        this.addFlyaway(answer.x, answer.y - 15, "COMBO x" + this.currentStreak, "#a9ebf9")
       }
 
       this.answers.forEach(answer => {
@@ -591,7 +591,7 @@ class PhantomPower {
     var backgroundDimmed = this.backgroundDimmed
     stage.addChild(backgroundDimmed)
 
-    var gameOverLabel = new createjs.Text("Game Over", "80px Courier New", "#ff0000");
+    var gameOverLabel = new createjs.Text("Game Over", "80px Courier New", "#fb78b2");
     setAnchorPointCenter(gameOverLabel)
     gameOverLabel.x = this.width * 0.5;
     gameOverLabel.y = this.height * 0.15;
@@ -600,7 +600,7 @@ class PhantomPower {
     var gameOverDestinationY = gameOverLabel.y - 5
     createjs.Tween.get(gameOverLabel, {loop: true}).to({y:gameOverDestinationY}, 1000, createjs.Ease.sineInOut).to({y:gameOverOriginY}, 1000, createjs.Ease.sineInOut);
 
-    var finalScoreLabel = new createjs.Text("Final Score", "24px Courier New", "#ffffff");
+    var finalScoreLabel = new createjs.Text("Final Score", "24px Courier New", "#a9ebf9");
     setAnchorPointCenter(finalScoreLabel)
     finalScoreLabel.x = this.width * 0.5;
     finalScoreLabel.y = this.height * 0.33;
@@ -616,7 +616,7 @@ class PhantomPower {
                                                          .to({color:"#00ff00"}, 200, createjs.Ease.sineInOut)
                                                          .wait(500);
 
-    var lastSeenLabel = createLabel(stage, "Last seen:", 12, "#ffffff", this.width * 0.25, this.height * 0.47, "center")
+    var lastSeenLabel = createLabel(stage, "Last seen:", 12, "#a9ebf9", this.width * 0.25, this.height * 0.47, "center")
     stage.addChild(lastSeenLabel)
 
     var lastConcept = this.problem
@@ -625,25 +625,25 @@ class PhantomPower {
     lastConcept.y = this.height * 0.55
     stage.addChild(lastConcept)
 
-    var expectedLabel = createLabel(stage, "Expected answer:", 12, "#ffffff", this.width * 0.75, this.height * 0.47, "center")
+    var expectedLabel = createLabel(stage, "Expected answer:", 12, "#a9ebf9", this.width * 0.75, this.height * 0.47, "center")
     stage.addChild(expectedLabel)
 
-    var lastAnswer = createLabel(stage, this.expectedAnswer, 24, "#ffffff", this.width * 0.75, this.height * 0.53, "center")
+    var lastAnswer = createLabel(stage, this.expectedAnswer, 24, "#a9ebf9", this.width * 0.75, this.height * 0.53, "center")
     stage.addChild(lastAnswer)
 
-    var tipLabel = createLabel(stage, getTipLabel(this.problemType), 12, "#ffffff", this.width * 0.1, this.height * 0.65, "left")
+    var tipLabel = createLabel(stage, getTipLabel(this.problemType), 12, "#a9ebf9", this.width * 0.1, this.height * 0.65, "left")
     tipLabel.lineWidth = this.width * 0.8
     tipLabel.lineHeight = 20
     stage.addChild(tipLabel)
 
-    var messageLabel = new createjs.Text(getWinMessage(score), "24px Courier New", "#ffff00");
+    var messageLabel = new createjs.Text(getWinMessage(score), "24px Courier New", "#a9ebf9");
     setAnchorPointCenter(messageLabel)
     messageLabel.x = this.width * 0.5;
     messageLabel.y = this.height * 0.88;
     messageLabel.alpha = 0;
     stage.addChild(messageLabel);
 
-    var instructionLabel = new createjs.Text("- Click to try again - ", "12px Courier New", "#ffff00");
+    var instructionLabel = new createjs.Text("- Click to try again - ", "12px Courier New", "#a9ebf9");
     setAnchorPointCenter(instructionLabel)
     instructionLabel.x = this.width * 0.5;
     instructionLabel.y = this.height * 0.95;
