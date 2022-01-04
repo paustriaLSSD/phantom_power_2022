@@ -203,14 +203,17 @@ class PhantomPower {
       case GameMode.EASY:
         this.pointsPerCorrect = 25
         this.concepts = getEasyConcepts()
+        this.asterisksString = "*"
         break
       case GameMode.MEDIUM:
         this.pointsPerCorrect = 50
         this.concepts = getMediumConcepts()
+        this.asterisksString = "**"
         break
       default:
         this.pointsPerCorrect = 100
         this.concepts = getHardConcepts()
+        this.asterisksString = "***"
     }
 
     document.onkeydown = this.keyDown.bind(this);
@@ -600,7 +603,7 @@ class PhantomPower {
     var gameOverDestinationY = gameOverLabel.y - 5
     createjs.Tween.get(gameOverLabel, {loop: true}).to({y:gameOverDestinationY}, 1000, createjs.Ease.sineInOut).to({y:gameOverOriginY}, 1000, createjs.Ease.sineInOut);
 
-    var finalScoreLabel = new createjs.Text("Final Score", "24px Courier New", "#a9ebf9");
+    var finalScoreLabel = new createjs.Text("Final Score" + this.asterisksString, "24px Courier New", "#a9ebf9");
     setAnchorPointCenter(finalScoreLabel)
     finalScoreLabel.x = this.width * 0.5;
     finalScoreLabel.y = this.height * 0.33;
