@@ -1,5 +1,5 @@
 {
-    "images": ["../assets/player.png"],
+    "images": ["assets/player.png"],
     "frames": {
       "width": 20,
       "height": 20,
