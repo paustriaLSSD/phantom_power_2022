@@ -94,7 +94,10 @@ class PhantomPower {
   }
 
   init() {
-    this.loader = new createjs.LoadQueue(true);//, "./assets/");
+    this.loadingLabel = createLabel(this.stage, "Loading...", 40, "#ffffff", this.width / 2, this.height / 2, "center")
+    this.stage.addChild(this.loadingLabel)
+
+    this.loader = new createjs.LoadQueue(true);
     this.loader.installPlugin(createjs.Sound);
     var loader = this.loader
 
@@ -120,6 +123,8 @@ class PhantomPower {
       title.x = this.width * TITLE_LOCATION_X_PROPORTION;
       title.y = this.height * TITLE_LOCATION_Y_PROPORTION;
       this.title = title;
+
+      this.stage.removeChild(this.loadingLabel)
 
       const event = new Event('assetsLoaded');
       dispatchEvent(event);
