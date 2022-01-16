@@ -38,6 +38,10 @@ const KEYCODE_LEFT = 37
 const KEYCODE_RIGHT = 39
 const KEYCODE_UP = 38
 const KEYCODE_DOWN = 40
+const KEYCODE_W = 87
+const KEYCODE_A = 65
+const KEYCODE_S = 83
+const KEYCODE_D = 68
 const INPUT_LOCK_DURATION = 1500
 const DISTRACTORS_COUNT = 4
 
@@ -178,16 +182,16 @@ class PhantomPower {
 
   handleInput() {
     if (!this.player.isMoving) {
-      if (this.keysPressed[KEYCODE_UP]) {
+      if (this.keysPressed[KEYCODE_UP] || this.keysPressed[KEYCODE_W]) {
         this.player.tryToMoveUp();
       }
-      else if (this.keysPressed[KEYCODE_DOWN]) {
+      else if (this.keysPressed[KEYCODE_DOWN] || this.keysPressed[KEYCODE_S]) {
         this.player.tryToMoveDown();
       }
-      else if (this.keysPressed[KEYCODE_LEFT]) {
+      else if (this.keysPressed[KEYCODE_LEFT] || this.keysPressed[KEYCODE_A]) {
         this.player.tryToMoveLeft();
       }
-      else if (this.keysPressed[KEYCODE_RIGHT]) {
+      else if (this.keysPressed[KEYCODE_RIGHT] || this.keysPressed[KEYCODE_D]) {
         this.player.tryToMoveRight();
       }
     }
